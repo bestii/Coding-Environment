@@ -1,3 +1,5 @@
 packages:
   - "js"
   - "ts"
+  - "tsx"
+  - "jsx"
