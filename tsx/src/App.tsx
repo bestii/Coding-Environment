@@ -1,5 +1,6 @@
 import "./App.css";
 import BookingPerUser from "./components/BookingPerUser";
+import FilterByRatings from "./components/FilterByRatings";
 import TotalPrice from "./components/TotalPrice";
 import UniqueCities from "./components/UniqueCities";
 
@@ -9,6 +10,7 @@ function App() {
       <BookingPerUser />
       <TotalPrice />
       <UniqueCities />
+      <FilterByRatings />
     </div>
   );
 }
