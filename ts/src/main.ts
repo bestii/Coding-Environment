@@ -46,5 +46,23 @@ const transformTransactions = (
   }, {} as Record<string, { total: string; totalTransactions: number }>);
 };
 
-const transformedData = transformTransactions(data);
-console.log(transformedData);
+//const transformedData = transformTransactions(data);
+
+export default function mostCommonElements(
+  numbers: number[],
+  k: number
+): number[] {
+  const counterMap = new Map<number, number>();
+  for (const num of numbers) {
+    counterMap.set(num, (counterMap.get(num) ?? 0) + 1);
+  }
+
+  const keys = [...counterMap.entries()]
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, k)
+    .map(([key, _]) => key);
+
+  return keys;
+}
+
+//const value = mostCommonElements([4, 4, 4, 6, 6, 5, 5, 5], 2);
