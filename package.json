@@ -5,6 +5,8 @@
   "type": "module",
   "scripts": {
     "ts:start": "pnpm -F ts start",
-    "js:start": "pnpm -F js start"
+    "js:start": "pnpm -F js start",
+    "tsx:start": "pnpm -F tsx start",
+    "jsx:start": "pnpm -F jsx start"
   }
 }
