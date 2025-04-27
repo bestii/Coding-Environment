@@ -8,7 +8,7 @@ const HotelTable = () => {
   const sortedHotels = hotels.toSorted((a, b) => a.price - b.price);
 
   return (
-    <table>
+    <table border={1} cellPadding={5}>
       <thead>
         <tr>
           <th>Hotel Name</th>

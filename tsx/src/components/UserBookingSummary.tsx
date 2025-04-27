@@ -19,7 +19,7 @@ const UserBookingSummary = () => {
     // acc[booking.user].nights += booking.nights;
 
     acc[booking.user] = {
-      nights: acc[booking.user]?.nights ?? 0 + booking.nights,
+      nights: (acc[booking.user]?.nights ?? 0) + booking.nights,
     };
     return acc;
   }, {} as Record<string, { nights: number }>);
