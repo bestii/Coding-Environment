@@ -19,7 +19,9 @@ const HotelTable = () => {
         {sortedHotels.map((hotel) => (
           <tr key={hotel.id}>
             <td>{hotel.name}</td>
-            <td>{hotel.price}</td>
+            <td style={{ color: hotel.price > 100 ? "red" : "green" }}>
+              {hotel.price}
+            </td>
           </tr>
         ))}
       </tbody>
