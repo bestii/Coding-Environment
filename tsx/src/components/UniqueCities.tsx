@@ -13,8 +13,14 @@ const UniqueCities = () => {
     { name: "Hotel B", city: "Paris" },
     { name: "Hotel C", city: "Berlin" },
   ];
-  const uniqueList = getUnique(hotels);
-  return <div>{`${JSON.stringify(uniqueList)}`}</div>;
+  const uniqueCities = getUnique(hotels);
+  return (
+    <ul>
+      {uniqueCities.map((city) => (
+        <li key={city}>{city}</li>
+      ))}
+    </ul>
+  );
 };
 
 export default UniqueCities;
