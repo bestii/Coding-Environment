@@ -1,5 +1,4 @@
 import "./App.css";
-import BookingSummaryByCity from "./components/BookingSummaryByCity";
 import FilterByRatings from "./components/FilterByRatings";
 import HotelTable from "./components/HotelTable";
 import TopCustomerList from "./components/TopCustomerList";
@@ -18,7 +17,6 @@ function App() {
       <HotelTable />
       <UserBookingSummary />
       <TopCustomerList />
-      <BookingSummaryByCity />
       <SummaryByCity />
     </div>
   );
