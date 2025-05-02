@@ -28,8 +28,10 @@ const SummaryByCity = () => {
         totalAmount: 0,
       };
     }
-    if (!acc[booking.city]["users"][booking.user]) {
-      acc[booking.city]["users"][booking.user] = {
+    const cityGroup = acc[booking.city];
+    const userGroup = cityGroup.users;
+    if (!userGroup[booking.user]) {
+      userGroup[booking.user] = {
         nights: 0,
         totalAmount: 0,
       };
@@ -37,8 +39,8 @@ const SummaryByCity = () => {
 
     acc[booking.city].totalNights += booking.nights;
     acc[booking.city].totalAmount += booking.pricePerNight * booking.nights;
-    acc[booking.city]["users"][booking.user].nights += booking.nights;
-    acc[booking.city]["users"][booking.user].totalAmount +=
+    userGroup[booking.user].nights += booking.nights;
+    userGroup[booking.user].totalAmount +=
       booking.pricePerNight * booking.nights;
     return acc;
   }, {} as CityGroup);
