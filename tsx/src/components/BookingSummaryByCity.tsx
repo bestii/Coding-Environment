@@ -1,9 +1,19 @@
 const bookings = [
   { user: "Alice", nights: 3, city: "Berlin", pricePerNight: 120 },
+  { user: "Bob", nights: 4, city: "Berlin", pricePerNight: 100 },
+  { user: "Charlie", nights: 2, city: "Paris", pricePerNight: 150 },
   { user: "Alice", nights: 1, city: "Berlin", pricePerNight: 130 },
-  { user: "Charlie", nights: 5, city: "Rome", pricePerNight: 80 },
-  { user: "Bob", nights: 2, city: "Rome", pricePerNight: 90 },
-  { user: "Bob", nights: 2, city: "Paris", pricePerNight: 150 },
+  { user: "Bob", nights: 2, city: "Paris", pricePerNight: 120 },
+  { user: "Charlie", nights: 3, city: "Rome", pricePerNight: 90 },
+  { user: "Dave", nights: 1, city: "Rome", pricePerNight: 100 },
+  { user: "Eve", nights: 2, city: "Paris", pricePerNight: 140 },
+  { user: "Alice", nights: 2, city: "Rome", pricePerNight: 85 },
+  { user: "Charlie", nights: 2, city: "Berlin", pricePerNight: 150 },
+  { user: "Bob", nights: 1, city: "Paris", pricePerNight: 160 },
+  { user: "Eve", nights: 3, city: "Rome", pricePerNight: 95 },
+  { user: "Dave", nights: 1, city: "Berlin", pricePerNight: 40 },
+  { user: "Charlie", nights: 2, city: "Paris", pricePerNight: 130 },
+  { user: "Alice", nights: 1, city: "Rome", pricePerNight: 75 },
 ];
 
 interface TFooterProps {

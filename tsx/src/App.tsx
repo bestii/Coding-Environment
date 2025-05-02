@@ -6,6 +6,7 @@ import TopCustomerList from "./components/TopCustomerList";
 import TotalPrice from "./components/TotalPrice";
 import UniqueCities from "./components/UniqueCities";
 import UserBookingSummary from "./components/UserBookingSummary";
+import { SummaryByCity } from "./features";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <UserBookingSummary />
       <TopCustomerList />
       <BookingSummaryByCity />
+      <SummaryByCity />
     </div>
   );
 }
