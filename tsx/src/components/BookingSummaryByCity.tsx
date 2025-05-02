@@ -1,10 +1,40 @@
 const bookings = [
   { user: "Alice", nights: 3, city: "Berlin", pricePerNight: 120 },
-  { user: "Bob", nights: 2, city: "Paris", pricePerNight: 150 },
   { user: "Alice", nights: 1, city: "Berlin", pricePerNight: 130 },
   { user: "Charlie", nights: 5, city: "Rome", pricePerNight: 80 },
   { user: "Bob", nights: 2, city: "Rome", pricePerNight: 90 },
+  { user: "Bob", nights: 2, city: "Paris", pricePerNight: 150 },
 ];
+
+interface TFooterProps {
+  userList: Record<
+    string,
+    {
+      nights: number;
+      totalAmount: number;
+    }
+  >;
+}
+
+const TFooter = ({ userList }: TFooterProps) => {
+  const cityTotal = Object.entries(userList).reduce(
+    (total, [, stats]) => {
+      total["totalNights"] += stats.nights;
+      total["totalAmount"] += stats.totalAmount;
+      return total;
+    },
+    { totalNights: 0, totalAmount: 0 }
+  );
+  return (
+    <tfoot>
+      <tr>
+        <td>Total</td>
+        <td>{cityTotal.totalNights}</td>
+        <td>{cityTotal.totalAmount}</td>
+      </tr>
+    </tfoot>
+  );
+};
 
 const BookingSummaryByCity = () => {
   const groupedbyCity = bookings.reduce(
@@ -34,6 +64,7 @@ const BookingSummaryByCity = () => {
       >
     >
   );
+  console.log(Object.entries(groupedbyCity));
   return (
     <div>
       {Object.entries(groupedbyCity)
@@ -64,6 +95,7 @@ const BookingSummaryByCity = () => {
                   </tr>
                 ))}
               </tbody>
+              <TFooter userList={userList} />
             </table>
           </div>
         ))}
