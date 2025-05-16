@@ -2,8 +2,6 @@ import CityTable from "./components/CityTable";
 import type { CityGroup } from "./types";
 
 const bookings = [
-  { user: "Alice", nights: 3, city: "Berlin", pricePerNight: 120 },
-  { user: "Bob", nights: 4, city: "Berlin", pricePerNight: 100 },
   { user: "Charlie", nights: 2, city: "Paris", pricePerNight: 150 },
   { user: "Alice", nights: 1, city: "Berlin", pricePerNight: 130 },
   { user: "Bob", nights: 2, city: "Paris", pricePerNight: 120 },
@@ -32,6 +30,8 @@ const bookings = [
   { user: "Dave", nights: 1, city: "Berlin", pricePerNight: 40 },
   { user: "Charlie", nights: 2, city: "Paris", pricePerNight: 130 },
   { user: "Alice", nights: 1, city: "Rome", pricePerNight: 75 },
+  { user: "Alice", nights: 3, city: "Berlin", pricePerNight: 120 },
+  { user: "Bob", nights: 7, city: "Berlin", pricePerNight: 100 },
 ];
 
 const SummaryByCity = () => {
@@ -43,8 +43,9 @@ const SummaryByCity = () => {
         totalAmount: 0,
       };
     }
-    const cityGroup = acc[booking.city];
-    const userGroup = cityGroup.users;
+    const city = acc[booking.city];
+    const userGroup = city.users;
+
     if (!userGroup[booking.user]) {
       userGroup[booking.user] = {
         nights: 0,
@@ -52,19 +53,23 @@ const SummaryByCity = () => {
       };
     }
 
-    acc[booking.city].totalNights += booking.nights;
-    acc[booking.city].totalAmount += booking.pricePerNight * booking.nights;
+    city.totalNights += booking.nights;
+    city.totalAmount += booking.pricePerNight * booking.nights;
+
     userGroup[booking.user].nights += booking.nights;
     userGroup[booking.user].totalAmount +=
       booking.pricePerNight * booking.nights;
+
     return acc;
   }, {} as CityGroup);
 
   return (
     <div>
-      {Object.entries(groupByCity).map(([city, stats]) => (
-        <CityTable name={city} cityInfo={stats} key={city} />
-      ))}
+      {Object.entries(groupByCity)
+        .sort(([, a], [, b]) => b.totalAmount - a.totalAmount)
+        .map(([city, stats]) => (
+          <CityTable name={city} cityInfo={stats} key={city} />
+        ))}
     </div>
   );
 };
